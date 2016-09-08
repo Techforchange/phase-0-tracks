@@ -1,0 +1,20 @@
+section#contact-info {
+	font-size: .8em;
+
+}
+
+
+.job { 
+background-color: #e9e5dc;
+padding: 20px 30px;
+border-radius: 25px;
+margin-top: 30px;
+ }
+
+ .Accomplishments { 
+font-size: .8em;
+  }
+
+ ol.Accomplishments li:last-of-type { 
+  	text-shadow: 2px 2px; 
+   }
