@@ -1,32 +1,67 @@
 blockquote {
-  border-left: 5px solid blue;
-  padding: 15px;
-  margin-left: 0px;
+
+ border-left: 5px solid blue;
+ padding: 15px;
+ margin-left: 0px;
+}
+
+
+
+body {
+
+ max-width: 960px;
+
 }
 
 cite {
-  display: block;
-  margin-top: 10px;
+ display: block;
+ margin-top: 10px;
 }
 
-#external-links ul {
-  list-style-type: none;
-  padding-left: 0px;
+#external-links {
+ display:inline-block;
+ float: right;
+ max-width: 100%;
+ vertical-align: top;
+ margin: 0%;
+ margin-top: 50%;
+ margin-right: -5%;
 }
-
+#content {
+ display: inline-block;
+ margin: 5%;
+ width: 60%;
+ margin-top: 10%;
+ vertical-align: top;
+}
 /* you're welcome to edit the
-image, figure, and figcaption CSS if you'd like, 
+image, figure, and figcaption CSS if you'd like,
 but it's optional! */
 img {
-  width: 100%;
+ width: 100%;
 }
 
 figure {
-  margin-left: 0px;
-  margin-right: 0px;
+ margin-left: 0px;
+ margin-right: 0px;
 }
 
 figcaption {
-  font-style: italic;
-  text-align: right;
+ font-style: italic;
+ text-align: right;
+}
+
+
+
+@media screen and (max-width: 706px) {
+ body {
+   background-color: green;
+
+ }
+}
+
+@media screen and (max-width: 500px) {
+ h1 {
+   font-style: italic;
+ }
 }
