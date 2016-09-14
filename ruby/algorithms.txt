@@ -1,0 +1,64 @@
+ELEVATOR:
+
+puts "Are you going up or down? (up/down)"
+elevator = gets.chomp
+
+if elevator == "up"
+    puts "Press the arrow button pointing up"
+elsif elevator == "down"
+    puts "Press the arrow button pointing down"
+end
+
+puts "Are there people inside? (yes/no)"
+people_inside = gets.chomp
+
+if people_inside == "no"
+    puts "Walk inside where it is empty"
+    puts "Click on floor number"
+elsif
+    puts "Walk inside"
+    puts "Click on floor number"
+end
+
+puts "Is your floor the next one up? (yes/no)"
+floor = gets.chomp
+
+if floor == "yes"
+    puts "Make sure you move forward and exit"
+elsif
+    puts "Wait until your number comes up and then exit"
+end
+
+
+
+Making morning smoothie:
+
+puts "Walk forward 5 steps to refrigerator and open the refrigerator to check for ingredients"
+
+puts "Do you have milk? (yes/no)"
+milk = gets.chomp
+
+puts "Do you have strawberries? (yes/no)"
+strawberries = gets.chomp
+
+if milk == "yes" && strawberries == "yes"
+    puts "Grab the strawberries and milk"
+    puts "Close the refrigerator"
+    puts "Turn right and walk forward 5 steps"
+elsif milk == "yes"
+    puts "Go buy strawberries"
+elsif strawberries == "yes"
+    puts "Go buy milk"
+else
+    puts "Go buy McDonalds!"
+end
+
+puts "Do you have a nutribullet? (yes/no)"
+nutribullet = gets.chomp
+
+if nutribullet == "yes"
+    puts "Place strawberries and milk in nutribullet"
+    puts "Close with lid and push ON"
+else
+    puts "Buy a nutribullet!"
+end
