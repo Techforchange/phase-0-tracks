@@ -1,0 +1,38 @@
+header {
+   text-align: center;
+ }
+ 
+ ul {
+   list-style: none;
+ }
+ 
+ a {
+   text-decoration: none;
+ }
+ 
+ a:hover {
+   color: red;
+ }
+ .column-1 {
+  background-color: pink;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 10px;
+  border-style: dashed;
+}
+ 
+.column-2 {
+  background-color: lightblue;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 10px;
+  border-style: dashed;
+}
+
+footer {
+  text-align: center;
+}
