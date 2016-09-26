@@ -1,4 +1,4 @@
-=begin	def happy_birthday
+begin	def happy_birthday
 	first = "Captain"
 	last = "Jack"
 	puts "Happy Birthday!"
@@ -44,7 +44,7 @@ end
 puts "After .map call:"
 p fav_colors
 
-=begin
+
 #This is the delete method for the array
 
 fav_colors.delete_if {|color| color.length < 5}
@@ -59,7 +59,7 @@ p fav_colors
 fav_colors.reject! {|color| color.length < 5}
 p fav_colors
 
-=end
+
 
 #This is the take while method
 
@@ -71,14 +71,14 @@ p a
 
 
 
-=begin
+
 
 #This is the hash
 
 name_age = {'mary' => 20, 'rebecca' => 30, 'john' => 40 }
 puts "Original data:"
 p name_age
-=begin
+
 #This is the each method for the hash
 name_age.each do |name, age|
 	puts "#{name} is #{age} years old!"
@@ -99,10 +99,10 @@ p name_age
 
 
 #This is the reject method for the hash
-name_age.reject! {|name, age| name.length == 4}
-p name_age
+new_name = name_age.reject! {|name, age| name.length == 4}
+p new_name
 
-=end
+
 
 
 
