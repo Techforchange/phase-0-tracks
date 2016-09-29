@@ -1,21 +1,30 @@
 
 
+array =[]
 #Write a method that takes a spy's name
 #swapping the first and last name
-puts "What is your spy name? Type in quit to exit"
+def change_name(fullname)
+		new_name = fullname.split
+		swap_name = "#{new_name[1]} #{new_name[0]}"
+		swap_name.reverse
+end
+
+
+
+loop  do 
+	puts "What is your spy name? Type in quit to exit"
 	name = gets.chomp.downcase
-def change_name 
-	new_name = name.split
-	swap_name = "#{new_name[1]} #{new_name[0]}"
-	p swap_name.reverse
+	if name != "quit"
+		p change_name(name)
+		array.push(change_name(name))
+	else
+		break
+	end
 
 end
 
-change_name
+array.each do |iterate|
 
-loop  do 
-	if name == "quit"
-		break
-	else
-		change_name	
+    puts iterate
+
 end
