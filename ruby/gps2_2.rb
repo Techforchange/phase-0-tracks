@@ -69,10 +69,18 @@ update_list("banana", 4, arlene_list)
 # steps:
 # output:
 
-# What did you learn about pseudocode from working on this challenge?
-# What are the tradeoffs of using arrays and hashes for this challenge?
-# What does a method return?
-# What kind of things can you pass into methods as arguments?
-# How can you pass information between methods?
-# What concepts were solidified in this challenge, and what concepts are still confusing?
+
+### What did you learn about pseudocode from working on this challenge? 
+#How you must break the problem apart to fully grasp it. Pseucode helps with that.
+### What are the tradeoffs of using arrays and hashes for this challenge?
+#Arrays came in handy when you simply have a list but in this case, each item had a quantity so a hash was more useful.
+###What does a method return?
+#The values stored
+### What kind of things can you pass into methods as arguments?
+# Strings, Integers, Objects
+### How can you pass information between methods?
+#Assigning a variable in this case, to the returned values from another method and using that variable within your new method
+### What concepts were solidified in this challenge, and what concepts are still confusing?
+#The manner in which to break down the problem and how to use pseucode to answer it. I'm still struggling with syntax in terms of when to use {}. [], () and = vs =>
+
 
