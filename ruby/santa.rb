@@ -1,6 +1,5 @@
 class Santa
-	attr_reader :gender
-	attr_accessor :age, :ethnicity,  
+	attr_accessor :age, :ethnicity, :gender 
 	#A speak method that will print "Ho, ho, ho! Haaaappy holidays!"
 	def speak
 		puts "Ho, ho, ho! Haaaappy holidays!"
@@ -36,7 +35,10 @@ class Santa
 		@reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(index))
 	end
 	
-	#create a setter method where gender can be accessed outside class
+	#create randomized ethinicity/gender
+	def random_age
+		@age = rand(140)
+	end
 	
 end
 
@@ -46,28 +48,16 @@ santas = []
 genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ["black", "Latino", "white", "Japanese-African", "Asian", "Mixed", "N/A"]
 
-# Make a loop that adds each santa to the santas array
-genders.length.times do |item|
-  santas << Santa.new(genders[item], ethnicities[item])
+
+
+100.times do
+	my_santa = Santa.new(genders.sample, ethnicities.sample)
+	puts "Gender: #{my_santa.gender}"
+	puts "Age: #{my_santa.random_age}"
+	puts "Ethnicity: #{my_santa.ethnicity}"
+	puts "-" * 7
 end
 
-###Testing program
-# santas = Santa.new("female", "hispanic")
-# santas.get_mad_at("Rudolph")
-# santas.age = 3
-# puts "#{santas.age}"
-# santas.ethnicity = "all of the above"
-# puts "All santas will not have a race, they will be #{santas.ethnicity}!"
 
-i = 0
 
-#set age = random age between 1 and 140
-age = Random.new
-age.rand(1...140)
-puts "Your Santa is a {#{}"
-
-@gender = gender
-		@ethnicity = ethnicity
-		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
 
