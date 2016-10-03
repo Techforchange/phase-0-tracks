@@ -8,25 +8,25 @@ class Wordguess
 		@guess = guess.to_str
 		@guess_count = word.length
 		@is_over = false
-		@arr = arr
+		@arr = []
 	end
 
 	def check_word(guess)
-		arr = []
-		arr.length == word.length
-		arr = word.map do |letter|
+		
+		@arr.length == @word.length
+		@arr = @word.map do |letter|
 			if  letter == guess
 				guess
   			else
     			' _ '
   			end
 		end
-		p arr.join
+		p @arr.join
 		
 	end
 	
 	def is_over
-		if arr == word
+		if @arr == @word
 			p "You won!!! Congrats!"
 		else
 			p "Really? It wasn't THAT hard. You should be ashamed lol Joking!"
@@ -57,22 +57,4 @@ while guess_count < word.length
 		guess_count += 1
 end
 game.is_over
-
-	
-
-
-
-
-
-
-
-
-	
-	
-
-
-
-
-
-
 
