@@ -6,7 +6,16 @@ var names = ["Bob","Mike","David","Coco"];
 color.push("black");
 //Add a code that adds another name to the names array
 names.push("George");
+//create an empty array
+horse = {};
 // The keys of your object should be horse names, and the values should be colors.
-for (var i = color.length; i > 0; i--)
-var horse = { names[str]:colors[str]};
-console.log("This horse's name is" + horse['name'] + "and its color is" + color['color']);
+for (var i = 0; i < color.length; i++){
+	horse[names[i]] = color[i];
+}
+console.log(horse);
+
+//Car function
+function Car(year,model,color){
+
+	
+}
