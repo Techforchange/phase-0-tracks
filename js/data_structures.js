@@ -17,7 +17,7 @@ console.log(horse);
 //Car function
 
 function Car(year,color,isHybrid){
-	console.log("Our new car:", this);
+	console.log("Our new car:");
 
 	this.year = year;
 	this.color = color;
@@ -31,4 +31,39 @@ function Car(year,color,isHybrid){
 		}
 	}
 }
+
+//Driver code
+console.log("Let's make a new car!");
+var newcar = new Car(1999,"red",false);
+console.log("This newcar has a year:");
+console.log(newcar.year);
+console.log("Is this a hybrid?:");
+console.log(newcar.isHybrid)
+console.log("This newcar has a gorgeous color of:");
+console.log(newcar.color);
+newcar.repair();
+console.log("-----")
+console.log("Let's make a new car!");
+var lexus = new Car(2014,"black",true);
+console.log("This newcar has a year:");
+console.log(lexus.year);
+console.log("Is this a hybrid?:");
+console.log(lexus.isHybrid)
+console.log("This newcar has a gorgeous color of:");
+console.log(lexus.color);
+lexus.repair();
+console.log("-----")
+console.log("Let's make a new car!");
+var car3 = new Car(2000,"white",true);
+console.log("This newcar has a year:");
+console.log(car3.year);
+console.log("Is this a hybrid?:");
+console.log(car3.isHybrid)
+console.log("This newcar has a gorgeous color of:");
+console.log(car3.color);
+car3.repair();
+console.log("-----")
+
+
+
 	
