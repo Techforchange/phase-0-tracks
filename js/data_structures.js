@@ -15,7 +15,20 @@ for (var i = 0; i < color.length; i++){
 console.log(horse);
 
 //Car function
-function Car(year,model,color){
 
-	
+function Car(year,color,isHybrid){
+	console.log("Our new car:", this);
+
+	this.year = year;
+	this.color = color;
+	this.isHybrid = isHybrid;
+
+	this.repair = function() {
+		if (this.year < 2000){
+			console.log("Go get a repair!");} 
+		else {
+			console.log("No repair is needed!");
+		}
+	}
 }
+	
