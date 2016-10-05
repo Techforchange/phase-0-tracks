@@ -4,8 +4,12 @@
 //Have your counter go backwards which means it needs to decrease
 // For each string, it should print the reverse of its letters
 
-var str = "hello"
-
+var str = "hello";
+var x = [];
 for (var i = str.length; i > -1; i --){
-	console.log(str[i]);
+	
+	x.push(str[i]);
+	
 }
+console.log(x);
+
