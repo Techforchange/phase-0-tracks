@@ -10,12 +10,21 @@ function reverse(word){
 		x = word[i] + x;
 	}
 	return x;
+
+	if (1 == 1){
+		console.log(x);
+	}
 }
 
 //Driver code
 //Test it with "hello" to give you olleh
 console.log(reverse("hello"));
 console.log(reverse("hallelujah"));
+ //Driver code Print variable if statement is true
+ var x = "Javascript"
+ 	if (1 == 1){
+		console.log(x);
+	} 
 
 
 
