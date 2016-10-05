@@ -11,7 +11,11 @@ function reverse(word){
 	}
 	return x;
 }
+
+//Driver code
+//Test it with "hello" to give you olleh
 console.log(reverse("hello"));
+console.log(reverse("hallelujah"));
 
 
 
