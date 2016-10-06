@@ -2,15 +2,24 @@
 var names = ["arlene", "martin", "angelica", "christina"];
 //every element in the string get its length
 function longestword(array){
-	var x = [];
-	for (var i = 0; i < names.length; i++){
-		x.push(names[i].length);
+	var longest = "";
+
+	for (var i = 0; i < array.length; i++){
+		if (array[i].length > longest.length) {
+			longest = array[i];
+		}
+		else if (array[i].length < longest.length){
+		 longest = longest;
+		}
+		else (array[i].length = longest.length);{
+			longest = longest + array[i];
+		}
 	}
-	//console.log(x); 
-	console.log(x);
+	console.log(longest);
 }
 
-longestword(names);
+//var x = ["ha", "lo", "lol"];
+console.log(longestword("ha", "lo", "lol"));
 //Get each element within the string by its index using a conditional statement(similar to each method in ruby)
 //Set a variable equal to that element
 //Find the length of each string by x.length
