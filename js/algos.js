@@ -2,12 +2,12 @@
 var names = ["arlene", "martin", "angelica", "christina"];
 //every element in the string get its length
 function longestword(array){
-
+	var x = [];
 	for (var i = 0; i < names.length; i++){
-		console.log(names[i].length);
+		x.push(names[i].length);
 	}
-
-
+	//console.log(x); 
+	console.log(x);
 }
 
 longestword(names);
