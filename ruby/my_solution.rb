@@ -1,38 +1,23 @@
-<<<<<<< HEAD
+
 ## Virus Predictor, assignments focusing on hashes.
 
 # I worked on this challenge with Kim Tran.
 # We spent 2 hours on this challenge.
-=======
-# Virus Predictor
-
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
->>>>>>> 576db826c499e3c84d4a2671059bcaf9a3414dc1
 
 # EXPLANATION OF require_relative
 #
 #
-<<<<<<< HEAD
 require_relative 'state_data' #require relative, your file will be searched in the current folder, that you call out.
 #require doesn't have that context, and will just look in that parent director.
 
 class VirusPredictor
   #initialize instance variables, with state_of_origin, population_density, population as it's parameters.
   def initialize(state_of_origin, population_density, population) #only list out parameters in initialize
-=======
-require_relative 'state_data'
-
-class VirusPredictor
-
-  def initialize(state_of_origin, population_density, population)
->>>>>>> 576db826c499e3c84d4a2671059bcaf9a3414dc1
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
-<<<<<<< HEAD
   def virus_effects #run speed_of_spread and predicted_death.
     #predicted_deaths(@population_density, @population, @state)
     #speed_of_spread(@population_density, @state)
@@ -48,17 +33,6 @@ class VirusPredictor
     # predicted deaths is solely based on population density
     #.floor is when you're comparing 2 things 1.2.floor will give you 1.
     #returns the largest integer float. rounding down to the "floor"
-=======
-  def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
-  end
-
-  private
-
-  def predicted_deaths(population_density, population, state)
-    # predicted deaths is solely based on population density
->>>>>>> 576db826c499e3c84d4a2671059bcaf9a3414dc1
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
@@ -70,7 +44,6 @@ class VirusPredictor
     else
       number_of_deaths = (@population * 0.05).floor
     end
-<<<<<<< HEAD
     #Made number of deaths available to spped of spread to print one entire sentence
     @number_of_deaths = number_of_deaths
     
@@ -94,31 +67,6 @@ class VirusPredictor
     
 
     puts " {@state} will lose #{@number_of_deaths} people in this outbreak and will spread across the state in #{speed} months.\n\n"
-=======
-
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
-
-  end
-
-  def speed_of_spread(population_density, state) #in months
-    # We are still perfecting our formula here. The speed is also affected
-    # by additional factors we haven't added into this functionality.
-    speed = 0.0
-
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
-    end
-
-    puts " and will spread across the state in #{speed} months.\n\n"
->>>>>>> 576db826c499e3c84d4a2671059bcaf9a3414dc1
 
   end
 
@@ -127,12 +75,8 @@ end
 #=======================================================================
 
 # DRIVER CODE
-<<<<<<< HEAD
 # initialize VirusPredictor for each state
 # State_data has constant variable scope, in the same code as your driver code... but since it's a constant, it has a wider scope.
-=======
- # initialize VirusPredictor for each state
->>>>>>> 576db826c499e3c84d4a2671059bcaf9a3414dc1
 
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
@@ -147,7 +91,6 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
-<<<<<<< HEAD
 STATE_DATA.each do |state, population_info|
   state_instance = VirusPredictor.new(state,population_info[:population_density], population_info[:population])
   state_instance.virus_effects
@@ -164,9 +107,4 @@ end
 # When refactoring virus_effects, what stood out to you about the variables, if anything?
 #They were being used in both the parameters for the other two methods as well as in the iteration method
 # What concept did you most solidify in this challenge?
-#Hashes: I understand now how hashes work within iteration as well as how they are called. 
-=======
-
-#=======================================================================
-# Reflection Section
->>>>>>> 576db826c499e3c84d4a2671059bcaf9a3414dc1
+#Hashes: I understand now how hashes work within iteration as well as how they are called.
