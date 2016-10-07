@@ -38,20 +38,21 @@ function keymatch (array){
 
 function RandomTest(int){
 arr = [];
-word = 
-word.length = Math.floor(Math.random() * 10) + 1;  
-//word.length = 5
+word = "hello"
 
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
-var RandomLetters = [];
-for (var i = 0; i < word.length; i ++;){
-	RandomLetters.push(alphabet(Math.floor(Math.random() * 26) + 1));
-	return RandomLetters.join();
-}
 
-for (var i = 0; i < int; i ++;){
-	arr.push(word);
+x = Math.floor(Math.random() * 10) + 1
+console.log(x)
+	var RandomLetters = [];
+for (var i = 0; i < x; i++){
+
+	var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	RandomLetters.push(alphabet[Math.floor(Math.random() * 26) + 1]);
+	
 }
+RandomLetters.join("");
+
+
 
 //var example = [{name: "Steven", age: 6},{name: "Mark", age: 54}];
 
