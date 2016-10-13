@@ -37,3 +37,31 @@ Arlene|1|Bridesmaids Table
 Victor|3|Family Table
 Cristina|1|Bridesmaids Table
 Pato|2|Groomsmen Table
+
+
+SELECT wedding.name, assignment.name FROM wedding JOIN assignment ON wedding.assignment_id = assignment.id WHERE assignment_id = 4;
+Arlene|Bridesmaids Table
+Cristina|Bridesmaids Table
+
+
+SELECT wedding.name, assignment.name FROM wedding  INNER JOIN assignment ON wedding.assignment_id = assignment_id;
+Arlene|Family Table
+Arlene|College Friends Table
+Arlene|Co-workers Table
+Arlene|Bridesmaids Table
+Arlene|Groomsmen Table
+Victor|Family Table
+Victor|College Friends Table
+Victor|Co-workers Table
+Victor|Bridesmaids Table
+Victor|Groomsmen Table
+Cristina|Family Table
+Cristina|College Friends Table
+Cristina|Co-workers Table
+Cristina|Bridesmaids Table
+Cristina|Groomsmen Table
+Pato|Family Table
+Pato|College Friends Table
+Pato|Co-workers Table
+Pato|Bridesmaids Table
+Pato|Groomsmen Table
