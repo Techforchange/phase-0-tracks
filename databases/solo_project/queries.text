@@ -1,9 +1,9 @@
-SELECT * FROM wedding, assignment WHERE wedding.assignment_id = assignment.id;
-1|Arlene|1|2|2|College Friends Table
-2|Victor|3|1|1|Family Table
-3|Danny|5|1|1|Family Table
-4|Cristina|1|4|4|Bridesmaids Table
-5|Pato|2|5|5|Groomsmen Table
+SELECT * FROM wedding;
+1|Arlene|1|2
+2|Victor|3|1
+3|Danny|5|1
+4|Cristina|1|4
+5|Pato|2|5
 
 
 UPDATE wedding SET assignment_id=4 WHERE name="Arlene";
@@ -12,3 +12,28 @@ UPDATE wedding SET assignment_id=4 WHERE name="Arlene";
 3|Danny|5|1|1|Family Table
 4|Cristina|1|4|4|Bridesmaids Table
 5|Pato|2|5|5|Groomsmen Table
+
+
+SELECT * FROM wedding, assignment WHERE wedding.assignment_id = assignment.id;
+1|Arlene|1|2|2|College Friends Table
+2|Victor|3|1|1|Family Table
+3|Danny|5|1|1|Family Table
+4|Cristina|1|4|4|Bridesmaids Table
+5|Pato|2|5|5|Groomsmen Table
+
+
+SELECT wedding.name, wedding.guests, assignment.name FROM wedding JOIN assignment ON wedding.assignment_id = assignment.id;
+Arlene|1|Bridesmaids Table
+Victor|3|Family Table
+Danny|5|Family Table
+Cristina|1|Bridesmaids Table
+Pato|2|Groomsmen Table
+
+
+DELETE FROM wedding
+   ...> WHERE name= "Danny";
+sqlite> SELECT wedding.name, wedding.guests, assignment.name FROM wedding JOIN assignment ON wedding.assignment_id = assignment.id;
+Arlene|1|Bridesmaids Table
+Victor|3|Family Table
+Cristina|1|Bridesmaids Table
+Pato|2|Groomsmen Table
