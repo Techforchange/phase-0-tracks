@@ -4,3 +4,11 @@ SELECT * FROM wedding, assignment WHERE wedding.assignment_id = assignment.id;
 3|Danny|5|1|1|Family Table
 4|Cristina|1|4|4|Bridesmaids Table
 5|Pato|2|5|5|Groomsmen Table
+
+
+UPDATE wedding SET assignment_id=4 WHERE name="Arlene";
+1|Arlene|1|4|4|Bridesmaids Table
+2|Victor|3|1|1|Family Table
+3|Danny|5|1|1|Family Table
+4|Cristina|1|4|4|Bridesmaids Table
+5|Pato|2|5|5|Groomsmen Table
