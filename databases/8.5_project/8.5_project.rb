@@ -1,6 +1,6 @@
 
 
-#require 'sqlite3'
+require 'sqlite3'
 require 'simple-password-gen'
 
 #create SQlite3 database
