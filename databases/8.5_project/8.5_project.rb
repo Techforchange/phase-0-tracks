@@ -1,39 +1,73 @@
 
 
 require 'sqlite3'
+require 'simple-password-gen'
 
-
-##USER INTERFACE
-puts "Welcome to Math World, where you will learn Math in your OWN way! First, let's create your account! "
-puts "What is your first name?"
-first_name = gets.chomp.capitalize
-
-puts "What is your last name?"
-last_name = gets.chomp.capitalize
-
-puts "What is your email address?"
-email = gets.chomp.downcase
-
-puts "What is your birth date?(MMDDYYYY)"
-birth_date = gets.chomp.to_i
-
-#####password = Faker::Name.name
-
-
-puts "For now, keep the following information"
-puts "Login: #{email}"
-#####puts "Password:  "
+#create SQlite3 database
+student_info = SQlite3::Database.new("Student_Info.db")
 
 ##Create table with account information
-create_account_info_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS account_info (
+create_account_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS account_info(
 	id INTEGER PRIMARY KEY,
-	First Name VARCHAR(255),
-	Last Name VARCHAR(255),
+	FirstName VARCHAR(255),
+	LastName VARCHAR(255),
+	Email VARCHAR(255),
 	Birthdate INT,
 	Password VARCHAR(255)
 	)
 SQL
+
+##Store data into account info table
+def create_account_info_table(student_info,first_name, last_name, email, birth_date, password)
+	student_info.execute("INSERT INTO account_info(FirstName, LastName, Email, Birthdate, Password) VALUES (?,?,?,?,?)",
+		[first_name, last_name, email, birth_date, password])
+end
+
+#Print the table for user to see what's stored
+def print_account_table (student_info)
+	student_info.execute("SELECT * FROM account_info")
+end
+##USER INTERFACE
+
+puts "Welcome to Math World, where you will learn Math in your OWN way!"
+puts "Are you a new user? Y/N "
+new_user = gets.chomp.upcase
+
+if new_user == "Y"
+	puts "First, let's create your account!"
+	puts "What is your first name?"
+	first_name = gets.chomp.capitalize
+
+	puts "What is your last name?"
+	last_name = gets.chomp.capitalize
+
+	puts "What is your email address?"
+	email = gets.chomp.downcase
+
+	puts "What is your birth date?(MMDDYYYY)"
+	birth_date = gets.chomp.to_i
+
+	puts "For now, keep the following information"
+	puts "Login: #{email}"
+
+	#puts "Password: random "
+	password = Password.pronounceable
+	puts "Password: #{password}"
+
+	create_account_info_table(first_name, last_name, email, birth_date, password)
+	print_account_table(student_info)
+
+elsif new_user == "N"
+	puts "Great, welcome back!"
+	
+end
+
+
+
+
+
+
 
 ##User interaction with Mathworld. Create a table that displays date, skill, score before using Math World, score after using
 #Math World, and the user's reflection
@@ -82,60 +116,33 @@ end
 puts "Reflection is key! What do you believe led to your success? If you did not improve, it's ok! What do you want to do better in next time?"
 reflection = gets.chomp	
 
-#Create a table to document the user's history
+#Create SQlite3 Database for skills history
+skills = SQlite3::Database.new("Skills.db")
+#Create a table to document the user's skill history
 create_skills_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS student_profile (
+	CREATE TABLE IF NOT EXISTS skills_history(
 	id INTEGER PRIMARY KEY,
 	DATE INT,
 	Skill VARCHAR(255),
 	Before INT,
 	After INT,
 	Reflection VARCHAR(255)
-	age INT)
+	)
 SQL
 
-#create SQlite3 database
-db = SQlite3::Database.new("Student_Profile.db")
-#Call instance as a hash
-#db.results_as_hash = true
-#To view input:
-db.execute("SELECT * FROM kittens")
+##Store skills history into skills table
+def new_skill (skills, date, skill_working_on, score_skill_before, score_skill_after, reflection)
+	skills.execute("INSERT INTO skills_history(date, Skill, Before, After, Reflection) VALUES (?,?,?,?,?)",
+		[date, skill_working_on, score_skill_before, score_skill_after, reflection])
+end
 
-
-
-#delimiters
-
-
-#Call table
-db.execute(create_skills_table)
-
-#Add a test
-def new_skill (Date, Skill, Before, After, Reflection)
-	db.execute("INSERT INTO student_profile (Date, Skill, Before, After, Reflection) VALUES (?,?,?,?,?)",
-		[Date, Skill, Before, After, Reflection])
+#Print the table for user to see what's stored
+def print_skills_table (skills)
+	skills.execute("SELECT * FROM skills_history")
 end
 
 
 
-
-#Retrieve data
-Soulmates = db.execute("SELECT * FROM soulmates")
-#puts soulmates.class
-#p soulmates
-#Make info more user friendly
-soulmates.each do |soulmate|
-	puts "#{soulmate['name']} is #{soulmate['age']}"
-end
-
-#Create multiple users
-def create_   (db, name, age)
-	db.execute("INSERT INTO _____(name,age) VALUES (?.?)",[name,age])
-end
-
-
-8.times do 
-	create____(db, Faker::Name.name ,0)
-end
 
 
 
