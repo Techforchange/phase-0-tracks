@@ -114,13 +114,13 @@ SQL
 
 ##Store skills history into skills table
 def create_skills_history_table (skills, date, skill_working_on, score_skill_before, score_skill_after, reflection)
-	skills.execute("INSERT INTO skills_history(FirstName, LastName, Email, Birthdate, Password) VALUES (?,?,?,?,?)",
-		[FirstName, LastName, Email, Birthdate,Faker::Name.name])
+	skills.execute("INSERT INTO skills_history(date, Skill, Before, After, Reflection) VALUES (?,?,?,?,?)",
+		[date, skill_working_on, score_skill_before, score_skill_after, reflection])
 end
 
 #Print the table for user to see what's stored
-def print_account_table (student_info)
-	student_info.execute("SELECT * FROM account_info")
+def print_skills_table (skills)
+	skills.execute("SELECT * FROM skills_history")
 end
 
 #create SQlite3 database
