@@ -143,13 +143,15 @@ if input == "Y"
 	puts "Reflection is key! What do you believe led to your success? If you did not improve, it's ok! What do you want to do better in next time?"
 	reflection = gets.chomp	
 
-	new_skill (skills, date, skill_working_on, score_skill_before, score_skill_after, reflection)
+	new_skill(skills, date, skill_working_on, score_skill_before, score_skill_after, reflection)
 	print_skills_table (skills)
 
 elsif input == "N"
 	puts "I think you are! You just need Math World to help you!"
 
 end
+
+
 	
 
 
