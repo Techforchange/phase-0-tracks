@@ -4,30 +4,26 @@ require 'sqlite3'
 require 'simple-password-gen'
 
 #create SQlite3 database
-student_info = SQlite3::Database.new("Student_Info.db")
+student_info = SQLite3::Database.new "Student_Info.db"
+
 
 ##Create table with account information
-create_account_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS account_info(
+student_info.execute "CREATE TABLE IF NOT EXISTS account_info(
 	id INTEGER PRIMARY KEY,
 	FirstName VARCHAR(255),
 	LastName VARCHAR(255),
 	Email VARCHAR(255),
 	Birthdate INT,
-	Password VARCHAR(255)
-	)
-SQL
+	Password VARCHAR(255))"
 
-##Store data into account info table
+
+#Store data into account info table
 def create_account_info_table(student_info,first_name, last_name, email, birth_date, password)
 	student_info.execute("INSERT INTO account_info(FirstName, LastName, Email, Birthdate, Password) VALUES (?,?,?,?,?)",
 		[first_name, last_name, email, birth_date, password])
 end
 
-#Print the table for user to see what's stored
-def print_account_table(student_info)
-	student_info.execute("SELECT * FROM account_info")
-end
+
 ##USER INTERFACE
 
 puts "Welcome to Math World, where you will learn Math in your OWN way!"
@@ -35,7 +31,7 @@ puts "Are you a new user? Y/N "
 new_user = gets.chomp.upcase
 
 if new_user == "Y"
-	puts "First, let's create your account!"
+	puts "Great, let's create your account!"
 	puts "What is your first name?"
 	first_name = gets.chomp.capitalize
 
@@ -55,8 +51,8 @@ if new_user == "Y"
 	password = Password.pronounceable
 	puts "Password: #{password}"
 
-	create_account_info_table(first_name, last_name, email, birth_date, password)
-	print_account_table(student_info)
+	create_account_info_table(student_info,first_name, last_name, email, birth_date, password)
+	
 
 elsif new_user == "N"
 	puts "Great, welcome back!"
@@ -70,18 +66,17 @@ end
 
 
 #Create SQlite3 Database for skills history
-skills = SQlite3::Database.new("Skills.db")
+skills = SQLite3::Database.new "Skills.db"
 #Create a table to document the user's skill history
-create_skills_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS skills_history(
+skills.execute "CREATE TABLE IF NOT EXISTS skills_history(
 	id INTEGER PRIMARY KEY,
 	DATE INT,
 	Skill VARCHAR(255),
 	Before INT,
 	After INT,
 	Reflection VARCHAR(255)
-	)
-SQL
+	)"
+
 
 ##Store skills history into skills table
 def new_skill (skills, date, skill_working_on, score_skill_before, score_skill_after, reflection)
@@ -90,8 +85,15 @@ def new_skill (skills, date, skill_working_on, score_skill_before, score_skill_a
 end
 
 #Print the table for user to see what's stored
+
+	list = db.execute("SELECT * FROM todo_list WHERE done")
+	list.each do |todo|
+		puts todo["id"].to_s + ": " + todo["to_do"]
+		puts "Detail: " + todo["details"]
+	end
+
 def print_skills_table (skills)
-	skills.execute("SELECT * FROM skills_history")
+	puts skills.execute("SELECT * FROM skills_history")
 end
 
 ####USER INTERFACE
@@ -119,7 +121,7 @@ if input == "Y"
 	puts "Great! We'll help you with that. Just watch, with practice and Math World, you will go from feeling that you're a #{score_improve_subject} on #{improve_subject} to mastering it with a 5!"
 
 	puts "Let's get started! Let's fill out our entry table. Each time you log in, you will be asked several questions 
-	about a subject/skill and how you felt about it. It's important to remind myself of how much you've improved!"
+	about a subject/skill and how you felt about it. It's important to remind yourself of how much you've improved!"
 
 	puts "What is today's date?(MMDDYYYY)"
 	date = gets.chomp.to_i
