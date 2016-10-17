@@ -1,3 +1,5 @@
+#I worked with Ryan Austin on this assignment
+
 SELECT users.firstname, users.lastname, businesses.name, reviews.comment, reviews.stars FROM users u, businesses b, reviews r WHERE r.user_id = users.id AND r.business_id = businesses.id;
 businesses.name="Lotus Yoga"
 
