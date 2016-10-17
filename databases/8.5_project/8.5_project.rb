@@ -24,16 +24,32 @@ puts "For now, keep the following information"
 puts "Login: #{email}"
 #####puts "Password:  "
 
+#create SQlite3 database
+student_info = SQlite3::Database.new("Student_Info.db")
+
 ##Create table with account information
-create_account_info_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS account_info (
+create_account_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS account_info(
 	id INTEGER PRIMARY KEY,
-	First Name VARCHAR(255),
-	Last Name VARCHAR(255),
+	FirstName VARCHAR(255),
+	LastName VARCHAR(255),
+	Email VARCHAR(255),
 	Birthdate INT,
 	Password VARCHAR(255)
 	)
 SQL
+
+##Store data into account info table
+def create_account_info_table (student_info,first_name, last_name, Email, Birthdate, Faker::Name.name)
+	student_info.execute("INSERT INTO account_info(FirstName, LastName, Email, Birthdate, Password) VALUES (?,?,?,?,?)",
+		[FirstName, LastName, Email, Birthdate,Faker::Name.name])
+end
+
+#Print the table for user to see what's stored
+def print_account_table (student_info)
+	student_info.execute("SELECT * FROM account_info")
+end
+
 
 ##User interaction with Mathworld. Create a table that displays date, skill, score before using Math World, score after using
 #Math World, and the user's reflection
@@ -82,17 +98,30 @@ end
 puts "Reflection is key! What do you believe led to your success? If you did not improve, it's ok! What do you want to do better in next time?"
 reflection = gets.chomp	
 
-#Create a table to document the user's history
+#Create SQlite3 Database for skills history
+skills = SQlite3::Database.new("Skills.db")
+#Create a table to document the user's skill history
 create_skills_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS student_profile (
+	CREATE TABLE IF NOT EXISTS skills_history(
 	id INTEGER PRIMARY KEY,
 	DATE INT,
 	Skill VARCHAR(255),
 	Before INT,
 	After INT,
 	Reflection VARCHAR(255)
-	age INT)
+	)
 SQL
+
+##Store skills history into skills table
+def create_skills_history_table (skills, date, skill_working_on, score_skill_before, score_skill_after, reflection)
+	skills.execute("INSERT INTO skills_history(FirstName, LastName, Email, Birthdate, Password) VALUES (?,?,?,?,?)",
+		[FirstName, LastName, Email, Birthdate,Faker::Name.name])
+end
+
+#Print the table for user to see what's stored
+def print_account_table (student_info)
+	student_info.execute("SELECT * FROM account_info")
+end
 
 #create SQlite3 database
 db = SQlite3::Database.new("Student_Profile.db")
