@@ -1,0 +1,35 @@
+SELECT users.firstname, users.lastname, businesses.name, reviews.comment, reviews.stars FROM users u, businesses b, reviews r WHERE r.user_id = users.id AND r.business_id = businesses.id;
+businesses.name="Lotus Yoga"
+
+SELECT * FROM players, teams WHERE players.team_id = teams.id;
+
+SELECT 
+    productID,
+    productName,
+    categoryName,
+    companyName AS supplier
+FROM
+    reviews
+INNER JOIN
+    categories ON businesses.categoryID = reviews.categoryID
+INNER JOIN
+    suppliers ON users.supplierID = reviews.
+Release 2 question 2:
+
+SELECT * FROM reviews JOIN businesses, users ON reviews.user_id = users.id AND reviews.business_id = businesses.id;
+1|5|frickin' amazing|1|3|1|Grundy Hollow Wedding Chapel|3|Angela|Jolie
+2|2|Off their game =/|3|4|3|The Beagle Nightclub|4|Steven|Wonder
+3|3|Average joes|2|1|2|Amir's Towing|1|Bradford|Pitt
+4|4|Found my Chi|4|3|4|Lotus Yoga|3|Angela|Jolie
+sqlite>
+
+Release 2 question 3:
+sqlite> SELECT users.firstname, users.lastname, businesses.name, reviews.comment, reviews.stars FROM reviews JOIN businesses, users ON reviews.user_id = users.id AND reviews.business_id = businesses.id;
+Angela|Jolie|Grundy Hollow Wedding Chapel|frickin' amazing|5
+Steven|Wonder|The Beagle Nightclub|Off their game =/|2
+Bradford|Pitt|Amir's Towing|Average joes|3
+Angela|Jolie|Lotus Yoga|Found my Chi|4
+
+Release 2 question 4:
+sqlite> SELECT users.firstname, users.lastname, businesses.name, reviews.comment, reviews.stars FROM reviews JOIN businesses, users ON reviews.user_id = users.id AND reviews.business_id = businesses.id WHERE businesses.name="Lotus Yoga";
+Angela|Jolie|Lotus Yoga|Found my Chi|4
