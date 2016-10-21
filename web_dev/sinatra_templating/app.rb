@@ -1,6 +1,7 @@
-# require gems
+ require gems
 require 'sinatra'
 require 'sqlite3'
+require 'faker'
 
 set :public_folder, File.dirname(__FILE__) + '/static'
 
@@ -15,6 +16,14 @@ end
 
 get '/students/new' do
   erb :new_student
+end
+
+get '/teachers' do
+  # new_teacher = params[:new_teacher]
+  # "Hello World"
+  # "#{new_teacher}"
+  @students = db.execute("SELECT * FROM students")
+  erb :teachers
 end
 
 # create new students via
