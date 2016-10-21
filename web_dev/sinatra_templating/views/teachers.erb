@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teachers</title>
+  </head>
+  <body>
+  <p>Here is a list of teachers:</p>
+  <ul>
+    <% @students.each do |student| %>
+      <% fake_name = Faker::Name.name %>
+      <li><%= "#{student['name']}" + "'s teacher: "+ "#{fake_name}" %></li>
+    <% end %>
+  </ul>
+  </body>
+</html>
+
