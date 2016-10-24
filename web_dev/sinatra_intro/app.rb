@@ -61,8 +61,14 @@ get '/great_job' do
   end
 end
 
+#A route that uses route parameters to add two numbers and respond with the 
+#result. The data types are tricky here -- when will the data need to be 
+#(or arrive as) a string?
 
-
+get '/:number_1/plus/:number_2' do
+   result = params[:number_1].to_i + params[:number_2].to_i
+  "#{result}"
+end
 
 
 
